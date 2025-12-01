@@ -3,7 +3,7 @@ use std::io::{self, Result};
 fn main() -> Result<()> {
     let mut position = 50;
     let mut zeroes = 0;
-    let input = vec!["L68", "L30", "R48", "L5", "R60", "L55", "L1", "L99", "R14", "L82"];
+    let input = io::stdin().lines();
 
     for op in input {
         let op = op.unwrap();
