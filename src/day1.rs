@@ -1,14 +1,10 @@
-use std::fs::File;
-use std::io::{BufRead, BufReader, Result};
 use std::cmp;
 
-pub fn p1(file: &File) -> Result<()> {
-    let reader = BufReader::new(file);
+pub fn p1(input: &str) {
     let mut position = 50;
     let mut zeroes = 0;
 
-    for op in reader.lines() {
-        let op = op.unwrap();
+    for op in input.lines() {
         let (dir, mov) = op.split_at(1);
         // The choice of i16 is to handle the 99 + 99 possibility which is too large to fit in i8
         let mov = mov.parse::<i16>().expect("Expected move to be within 255 range, as the dial only goes 0 -> 99") % 100;
@@ -30,16 +26,13 @@ pub fn p1(file: &File) -> Result<()> {
 
     }
     println!("Zero count: {zeroes}");
-    Ok(())
 }
 
-pub fn p2(file: &File) -> Result<()> {
-    let reader = BufReader::new(file);
+pub fn p2(input: &str) {
     let mut position = 50;
     let mut zeroes = 0;
 
-    for op in reader.lines() {
-        let op = op.unwrap();
+    for op in input.lines() {
         let (dir, mov) = op.split_at(1);
         let mov = mov.parse::<i32>().expect("Number too large or NaN");
         let start = position;
@@ -74,5 +67,4 @@ pub fn p2(file: &File) -> Result<()> {
         }
     }
     println!("Zero count: {zeroes}");
-    Ok(())
 }
