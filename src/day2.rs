@@ -32,6 +32,42 @@ pub fn p1(input: &str) -> u64 {
 pub fn p2(input: &str) -> u64 {
     let mut result: u64 = 0;
 
+    for range in input.split(',') {
+        let [first, last]: [u64; 2] = range
+            .split('-')
+            .take(2)
+            .map(|p| {
+                p.trim()
+                    .parse::<u64>()
+                    .expect("Each side of the range must be a valid u64 number")
+            })
+            .collect::<Vec<_>>()
+            .try_into()
+            .expect("Could not find left and right sides of <l>-<r> format");
+
+        'number: for num in first..=last {
+            let pstr = num.to_string();
+
+            'sizing: for s in 1..pstr.len() {
+                let chunks = pstr
+                    .as_bytes()
+                    .chunks(s)
+                    .map(std::str::from_utf8)
+                    .collect::<Result<Vec<&str>, _>>()
+                    .unwrap();
+                let cmp = chunks[0];
+                for chunk in chunks {
+                    if cmp != chunk {
+                        continue 'sizing;
+                    }
+                }
+
+                result += num;
+                continue 'number;
+            }
+        }
+    }
+
     result
 }
 
