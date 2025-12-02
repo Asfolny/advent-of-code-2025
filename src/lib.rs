@@ -11,6 +11,7 @@ pub fn run() -> Result<()> {
 
     let input = fs::read_to_string("../res/input-2.txt")?;
     println!("Invalid total: {}", day2::p1(&input));
+    println!("Invalid total: {}", day2::p2(&input));
 
     Ok(())
 }
