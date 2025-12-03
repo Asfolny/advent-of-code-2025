@@ -16,6 +16,7 @@ pub fn run() -> Result<()> {
 
     let input = fs::read_to_string("./res/input-3.txt")?;
     println!("Max joltage: {}", day3::p1(&input));
+    println!("Max joltage: {}", day3::p2(&input));
 
     Ok(())
 }
