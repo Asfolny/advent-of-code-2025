@@ -47,12 +47,16 @@ pub fn p1(input: &str) -> u64 {
     result
 }
 
+pub fn p2(input: &str) -> u64 {
+    1
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn it_works() {
+    fn sample_p1() {
         let input = "
 ..@@.@@@@.
 @@@.@.@.@@
@@ -67,4 +71,22 @@ mod tests {
 ";
         assert_eq!(p1(input), 13);
     }
+
+    #[test]
+    fn sample_p2() {
+        let input = "
+..@@.@@@@.
+@@@.@.@.@@
+@@@@@.@.@@
+@.@@@@..@.
+@@.@@@@.@@
+.@@@@@@@.@
+.@.@.@.@@@
+@.@@@.@@@@
+.@@@@@@@@.
+@.@.@@@.@.
+";
+        assert_eq!(p2(input), 43);
+    }
+
 }
