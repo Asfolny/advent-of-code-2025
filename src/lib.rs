@@ -5,6 +5,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 pub fn run() -> Result<()> {
     // let input = fs::read_to_string("./res/input-1.txt")?;
@@ -19,8 +20,11 @@ pub fn run() -> Result<()> {
     // println!("Max joltage: {}", day3::p1(&input));
     // println!("Max joltage: {}", day3::p2(&input));
 
-    let input = fs::read_to_string("./res/input-4.txt")?;
-    println!("Movable boxes: {}", day4::p1(&input));
+    // let input = fs::read_to_string("./res/input-4.txt")?;
+    // println!("Movable boxes: {}", day4::p1(&input));
+    
+    let input = fs::read_to_string("./res/input-5.txt")?;
+    println!("Fresh fruit: {}", day5::p1(&input));
 
     Ok(())
 }
